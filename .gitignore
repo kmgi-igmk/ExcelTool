@@ -1,0 +1,7 @@
+pyexe/
+dist/
+build/
+src/__pycache__/
+src/frames/__pycache__/
+src/resources/icon.ico
+setup.py
