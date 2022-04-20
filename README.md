@@ -6,33 +6,43 @@
 
 ## How you develop
 
-**1. make sure to install python(3.10.4 or higher)**
-**2. create venv at working directory if necessary**
-i.e. `python -m venv pyexe`
-apply `--clear` option if venv should be initialised.
-**3. activate it**
-`pyexe\Scripts\activate.bat`
-**4. install dependencies**
-install modules by pip on your own
-`pip install pandas openpyxl pyinstaller`
-or
-install modules by requirements.txt
-`python -m pip install -r requirements.txt`
-※you can create requirements.txt by below command
-`python -m pip freeze > requirements.txt`
+### 1. make sure to install python(3.10.* or higher)
+
+### 2. create venv at working directory if necessary
+
+i.e. `python -m venv pyexe`  
+apply `--clear` option if venv should be initialised.  
+
+### 3. activate it
+
+`pyexe\Scripts\activate.bat`  
+
+### 4. install dependencies
+
+install modules by pip on your own  
+`pip install pandas openpyxl pyinstaller`  
+or  
+install modules by requirements.txt  
+`python -m pip install -r requirements.txt`  
+※you can create requirements.txt by below command  
+`python -m pip freeze > requirements.txt`  
 
 ## How you build
 
-**1. make sure that \*.spec files exist**
-`OneDir.spec`, `OneFile.spec`, `Scatter.spec`
-**2. issue build command**
-select one of these .spec file.
-`pyinstaller {}.spec`
-※remove temporary files and dir such as *build/* when `--clean` option is applied.
-or
-you can build it on your own.
-`pyinstaller src\App.py --noconsole --icon=src\resources\icon.ico [ --onedir | --onefile | <Nothing> ] --name=ExcelTool --exclude sqlite3 --add-date=src\resources\icon.ico;.\resources\`
-if build is successfully completed, ExcelTool.spec will create. Then you should add below code to that spec file in order to remove **'MKL'** module, which size is larger than others, so that product should be lighter and faster.
+### 1. make sure that \*.spec files exist
+
+`OneDir.spec`, `OneFile.spec`, `Scatter.spec`  
+
+### 2. issue build command
+
+select one of these .spec file.  
+`pyinstaller {}.spec`  
+※remove temporary files and dir such as *build/* when `--clean` option is applied.  
+or  
+you can build it on your own.  
+`pyinstaller src\App.py --noconsole --icon=src\resources\icon.ico [ --onedir | --onefile | <Nothing> ] --name=ExcelTool --exclude sqlite3 --add-date=src\resources\icon.ico;.\resources\`  
+if build is successfully completed, ExcelTool.spec will be created.  
+Then you should add below code to that spec file in order to remove **'MKL'** module, which size is larger than others, so that product size should be lighter and faster.  
 
 ```spec
 ・・・・・・
@@ -60,9 +70,10 @@ exe = EXE(pyz,・・・
 ・・・・・・・
 ```
 
-once updated .spec, issue below
-`pyinstaller {filename}.spec --clean`
-**3. give it to someone, maybe zip**
+once updated .spec, issue below  
+`pyinstaller {filename}.spec --clean`  
+
+### 3. give it to someone, maybe zip
 
 ## Tips
 
