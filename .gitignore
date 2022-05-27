@@ -3,5 +3,7 @@ dist/
 build/
 src/__pycache__/
 src/frames/__pycache__/
-src/resources/icon.ico
+src/core/__pycache__/
+src/util/__pycache__/
+src/resources/
 setup.py
