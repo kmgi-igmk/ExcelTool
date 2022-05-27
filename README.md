@@ -2,22 +2,20 @@
 
 ## Requirements
 
-- Python 3.10.4
+- Python >= 3.10.4
 
-## How you develop
+## How you build
 
-### 1. make sure to install python(3.10.* or higher)
-
-### 2. create venv at working directory if necessary
+### 1. create venv at working directory
 
 i.e. `python -m venv pyexe`  
 apply `--clear` option if venv should be initialised.  
 
-### 3. activate it
+### 2. activate it
 
 `pyexe\Scripts\activate.bat`  
 
-### 4. install dependencies
+### 3. install dependencies for the build
 
 install modules by pip on your own  
 `pip install pandas openpyxl pyinstaller`  
@@ -27,17 +25,15 @@ install modules by requirements.txt
 ※you can create requirements.txt by below command  
 `python -m pip freeze > requirements.txt`  
 
-## How you build
+### 4. make sure that \*.spec files exist
 
-### 1. make sure that \*.spec files exist
+`OneDir.spec` or `Scatter.spec`  
 
-`OneDir.spec`, `OneFile.spec`, `Scatter.spec`  
-
-### 2. issue build command
+### 5. issue build command
 
 select one of these .spec file.  
 `pyinstaller {}.spec`  
-※remove temporary files and dir such as *build/* when `--clean` option is applied.  
+※temporary files and dir such as *build/* are removed when `--clean` option is applied.  
 or  
 you can build it on your own.  
 `pyinstaller src\App.py --noconsole --icon=src\resources\icon.ico [ --onedir | --onefile | <Nothing> ] --name=ExcelTool --exclude sqlite3 --add-date=src\resources\icon.ico;.\resources\`  
@@ -70,10 +66,10 @@ exe = EXE(pyz,・・・
 ・・・・・・・
 ```
 
-once updated .spec, issue below  
+once updated *.spec, issue below  
 `pyinstaller {filename}.spec --clean`  
 
-### 3. give it to someone, maybe zip
+### 6. check the dist/ if products exists
 
 ## Tips
 

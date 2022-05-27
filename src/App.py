@@ -1,12 +1,12 @@
-import tkinter as tk
-import tkinter.font as tkfont
-from tkinter import ttk
-from frames import SwitchHandler as topframe
-from frames import Sizegriper as btmframe
-from Util import Util
 import ctypes
 import os
 import sys
+import tkinter as tk
+import tkinter.font as tkfont
+from tkinter import ttk
+
+import frames
+import util
 
 class DataAggregationTool(tk.Tk):
     def __init__(self):
@@ -16,12 +16,11 @@ class DataAggregationTool(tk.Tk):
         self.resizable(1, 1)
         
     def setup(self):
-        self.iconbitmap(default=Util.get_modifiedpath(os.path.join('resources', 'icon.ico')))
+        self.iconbitmap(default=util.get_modifiedpath(os.path.join('resources', 'icon.ico')))
         try:
             ctypes.windll.shcore.SetProcessDpiAwareness(True)
         except:
             pass
-
 
     def define_style(self):
         self.style = ttk.Style(self)
@@ -36,11 +35,11 @@ class DataAggregationTool(tk.Tk):
         #self.style.configure('TFrame', background='green')
         self.style.configure('TLabelframe.Label', font=self.font)
 
-        
+
 if __name__ == '__main__':
     app = DataAggregationTool()
-    topframe.SwitchHandler(app)
-    btmframe.Sizegriper(app)
+    frames.SwitchHandler(app)
+    frames.Sizegriper(app)
     app.setup()
     app.mainloop()
     
