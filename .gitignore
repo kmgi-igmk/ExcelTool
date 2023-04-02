@@ -4,6 +4,9 @@ build/
 src/__pycache__/
 src/frames/__pycache__/
 src/core/__pycache__/
+src/dto/__pycache__/
+src/config/__pycache__/
 src/util/__pycache__/
 src/resources/
 setup.py
+dist.zip

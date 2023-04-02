@@ -5,13 +5,14 @@ import tkinter as tk
 import tkinter.font as tkfont
 from tkinter import ttk
 
+from config import ConfigLoader
 import frames
 import util
 
 class DataAggregationTool(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title('データ集計ツール')
+        self.title(ConfigLoader().get_master_title())
         self.define_style()
         self.resizable(1, 1)
         
