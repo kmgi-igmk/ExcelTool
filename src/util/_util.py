@@ -21,3 +21,17 @@ def get_modifiedpath(relative_path, isPackedFile=True):
         base_path = os.path.abspath(os.path.dirname(sys.argv[0]))
     
     return os.path.join(base_path, relative_path)
+
+def is_list_element_unique(list):
+    return True if len(set(list)) == 1 else False
+
+def get_duplicate_vals(list):
+    counted = set()
+    return [x for x in list if x in counted or (counted.add(x) or False)]
+
+def export_report(msgs, filename):
+    reports = map(lambda x: x + '\n', msgs)
+    filepath = get_modifiedpath(filename, False)
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.writelines(reports)
+
